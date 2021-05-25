@@ -1,3 +1,5 @@
 /target/
 /.idea/
 /modelka.iml
+/ui/ui.iml
+/main.iml
