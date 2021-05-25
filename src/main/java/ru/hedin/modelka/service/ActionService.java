@@ -1,18 +1,16 @@
 package ru.hedin.modelka.service;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import jdk.nashorn.internal.runtime.JSONFunctions;
 import org.mozilla.javascript.Context;
-import org.mozilla.javascript.NativeJSON;
 import org.mozilla.javascript.ScriptableObject;
 import org.mozilla.javascript.json.JsonParser;
+import org.springframework.stereotype.Service;
 import ru.hedin.modelka.domain.Action;
 import ru.hedin.modelka.domain.ActionData;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
+@Service
 public class ActionService {
 
     public List<String> doAction(ActionData actionData) {
