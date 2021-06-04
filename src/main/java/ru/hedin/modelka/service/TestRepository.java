@@ -6,6 +6,7 @@ import ru.hedin.modelka.domain.User;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Repository
 public class TestRepository {
@@ -13,9 +14,12 @@ public class TestRepository {
     private EntityManager entityManager;
 
     @Transactional
-    public void test(){
+    public int test(){
         User user = new User();
         user.setLogin("test_"+ System.currentTimeMillis());
         entityManager.persist(user);
+
+        List users = entityManager.createQuery("select u from User u").getResultList();
+        return users.size();
     }
 }

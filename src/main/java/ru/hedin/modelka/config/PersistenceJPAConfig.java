@@ -23,7 +23,7 @@ public class PersistenceJPAConfig{
         LocalContainerEntityManagerFactoryBean em
                 = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan(new String[] { "com.baeldung.persistence.model" });
+        em.setPackagesToScan(new String[] { "ru.hedin.modelka.domain" });
 
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
@@ -32,19 +32,30 @@ public class PersistenceJPAConfig{
         return em;
     }
 
-    // TODO change to postgress
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUsername("mysqluser");
-        dataSource.setPassword("mysqlpass");
-        dataSource.setUrl(
-                "jdbc:mysql://localhost:3306/myDb?createDatabaseIfNotExist=true");
+        dataSource.setDriverClassName("org.h2.Driver");
+        dataSource.setUrl("jdbc:h2:mem:db;DB_CLOSE_DELAY=-1");
+        dataSource.setUsername("sa");
+        dataSource.setPassword("");
 
         return dataSource;
     }
+
+    // TODO change to postgress
+//    @Bean
+//    public DataSource dataSource() {
+//        DriverManagerDataSource dataSource = new DriverManagerDataSource();
+//
+//        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+//        dataSource.setUsername("mysqluser");
+//        dataSource.setPassword("mysqlpass");
+//        dataSource.setUrl(
+//                "jdbc:mysql://localhost:3306/myDb?createDatabaseIfNotExist=true");
+//
+//        return dataSource;
+//    }
 
     @Bean
     public PlatformTransactionManager transactionManager() {
@@ -62,7 +73,8 @@ public class PersistenceJPAConfig{
     Properties additionalProperties() {
         Properties properties = new Properties();
         properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
-        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
+//        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
+        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.H2Dialect");
 
         return properties;
     }
