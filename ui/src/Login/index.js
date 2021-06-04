@@ -52,9 +52,9 @@ export default function Login({ setToken }) {
               OK
             </button>
             <Link to="/register">Регистрация</Link>
-            <a className="Registration" href="">
-              Регистрация
-            </a>
+            {/*<a className="Registration" href="">*/}
+            {/*  Регистрация*/}
+            {/*</a>*/}
           </div>
         </form>
       </div>
