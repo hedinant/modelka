@@ -28,9 +28,6 @@ export default function Login({ setToken }) {
 
   return (
     <>
-      <a className="Test" href="">
-        Регистрация
-      </a>
       <div className="LoginForm">
         <form onSubmit={handleSubmit}>
           <div className="Username">
@@ -49,11 +46,14 @@ export default function Login({ setToken }) {
               onChange={(e) => setPassword(e.target.value)}
             />
           </label>{" "}
-          <div className="Example">
-            <button type="submit" name="login">
-              OK
-            </button>
-          </div>
+            <div className="Okreg">
+              <button type="submit" className="Button1" name="login">
+                OK
+              </button>
+              <a className="Registration" href="">
+                Регистрация
+              </a>
+            </div>
         </form>
       </div>
     </>

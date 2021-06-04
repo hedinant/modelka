@@ -1,5 +1,5 @@
 .LoginForm{
-    background-image: url("/src/Login/login_background.jpg");
+    background-image: url("/src/Login/One.jpg");
     height: 100vh;
     overflow: hidden;
     align-items: center;
@@ -19,19 +19,12 @@
 .PasswordInput{
     margin-left: 20px;
 }
-.Test{
-    padding-top: 324px;
-    position: absolute;
-    margin-left: 997px;
-    text-decoration: underline;
-    font-size: 18px;
-    }
 
-Button {
+.Button1 {
     background: #633e0e;
     color: #f5e1c2;
 }
-button:after {
+.button1:after {
     position: absolute;
     left: 0;
     top: 0;
@@ -44,4 +37,11 @@ button:after {
     transform-origin: 0 0;
     transition: transform .3s, border .1s .3s;
     box-sizing: border-box;
+}
+.Registration {
+    margin-left: 20px;
+}
+.Okreg {
+    alignment: right;
+
 }
