@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./index.css";
+import { Link } from "react-router-dom";
 
 async function loginUser(username, password) {
   return fetch("http://localhost:8080/login", {
@@ -46,14 +47,15 @@ export default function Login({ setToken }) {
               onChange={(e) => setPassword(e.target.value)}
             />
           </label>{" "}
-            <div className="Okreg">
-              <button type="submit" className="Button1" name="login">
-                OK
-              </button>
-              <a className="Registration" href="">
-                Регистрация
-              </a>
-            </div>
+          <div className="Okreg">
+            <button type="submit" className="Button1" name="login">
+              OK
+            </button>
+            <Link to="/register">Регистрация</Link>
+            {/*<a className="Registration" href="">*/}
+            {/*  Регистрация*/}
+            {/*</a>*/}
+          </div>
         </form>
       </div>
     </>
