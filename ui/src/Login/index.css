@@ -1,17 +1,20 @@
 .LoginForm{
-    background-image: url("/src/Login/One.jpg");
+
+    background-image: url("/src/Login/login_dackground9.jpg");
     height: 100vh;
     overflow: hidden;
     align-items: center;
     text-align: center;
     font-weight: bold;
     font-size: 20px;
+    position: relative
 }
 
 .Username{
     alignment: center;
-    left: 200px;
-    padding-top: 260px;
+
+    /*left: 200px;*/
+    /*padding-top: 200px;*/
 }
 .UsernameInput {
     margin-left: 15px;
@@ -44,4 +47,20 @@
 .Okreg {
     alignment: right;
 
+}
+.login_table_back {
+    top: 20%;
+    left: 20%;
+    right: 20%;
+    background-image: url('/src/Login/table2.gif');
+    width: 900px;
+    height: 500px;
+    background-position: center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    position: relative;
+}
+.login_items{
+    top: 41%;
+    position: relative;
 }
