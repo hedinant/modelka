@@ -30,33 +30,37 @@ export default function Login({ setToken }) {
   return (
     <>
       <div className="LoginForm">
-        <form onSubmit={handleSubmit}>
-          <div className="Username">
-            <span>Username</span>
-            <input
-              className="UsernameInput"
-              type="text"
-              onChange={(e) => setUserName(e.target.value)}
-            />
+        <div className="login_table_back">
+          <div className="login_items">
+            <form onSubmit={handleSubmit}>
+              <div className="Username">
+                <span>Username</span>
+                <input
+                    className="UsernameInput"
+                    type="text"
+                    onChange={(e) => setUserName(e.target.value)}
+                />
+              </div>
+              <label className="">
+                <span>Password</span>
+                <input
+                    className="PasswordInput"
+                    type="password"
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+              </label>{" "}
+              <div className="Okreg">
+                <button type="submit" className="Button1" name="login">
+                  OK
+                </button>
+                <Link to="/register">Регистрация</Link>
+                {/*<a className="Registration" href="">*/}
+                {/*  Регистрация*/}
+                {/*</a>*/}
+              </div>
+            </form>
           </div>
-          <label className="">
-            <span>Password</span>
-            <input
-              className="PasswordInput"
-              type="password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </label>{" "}
-          <div className="Okreg">
-            <button type="submit" className="Button1" name="login">
-              OK
-            </button>
-            <Link to="/register">Регистрация</Link>
-            {/*<a className="Registration" href="">*/}
-            {/*  Регистрация*/}
-            {/*</a>*/}
-          </div>
-        </form>
+        </div>
       </div>
     </>
   );
