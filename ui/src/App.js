@@ -8,25 +8,30 @@ import { useState } from "react";
 function App() {
   const [token, setToken] = useState();
 
-  console.log("token " + token)
-  if (!token) {
-    console.log("Login " + setToken)
-    return <Login setToken={setToken} />;
+  // console.log("token " + token)
+  // if (!token) {
+  //   console.log("Login " + setToken)
+  //   return <Login setToken={setToken} />;
+  // }
+
+  function MainApp() {
+    if (!token) {
+      console.log("Login " + setToken)
+      return <Login setToken={setToken} />;
+    }
+    return <Dashboard token={token} />
   }
 
   return (
     <div className="wrapper">
-      <h1>Application</h1>
-      <BrowserRouter>
         <Switch>
-          <Route path="/dashboard">
-            <Dashboard token={token} />
-          </Route>
           <Route path="/register">
             <Register />
           </Route>
+          <Route path="/">
+            <MainApp/>
+          </Route>
         </Switch>
-      </BrowserRouter>
     </div>
 
     // <div className="App">

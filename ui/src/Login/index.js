@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./index.css";
+import { Link } from "react-router-dom";
 
 async function loginUser(username, password) {
   return fetch("http://localhost:8080/login", {
@@ -28,33 +29,38 @@ export default function Login({ setToken }) {
 
   return (
     <>
-      <a className="Test" href="">
-        Регистрация
-      </a>
       <div className="LoginForm">
-        <form onSubmit={handleSubmit}>
-          <div className="Username">
-            <span>Username</span>
-            <input
-              className="UsernameInput"
-              type="text"
-              onChange={(e) => setUserName(e.target.value)}
-            />
+        <div className="login_table_back">
+          <div className="login_items">
+            <form onSubmit={handleSubmit}>
+              <div className="Username">
+                <span>Username</span>
+                <input
+                    className="UsernameInput"
+                    type="text"
+                    onChange={(e) => setUserName(e.target.value)}
+                />
+              </div>
+              <label className="">
+                <span>Password</span>
+                <input
+                    className="PasswordInput"
+                    type="password"
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+              </label>{" "}
+              <div className="Okreg">
+                <button type="submit" className="Button1" name="login">
+                  OK
+                </button>
+                <Link to="/register">Регистрация</Link>
+                {/*<a className="Registration" href="">*/}
+                {/*  Регистрация*/}
+                {/*</a>*/}
+              </div>
+            </form>
           </div>
-          <label className="">
-            <span>Password</span>
-            <input
-              className="PasswordInput"
-              type="password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </label>{" "}
-          <div className="Example">
-            <button type="submit" name="login">
-              OK
-            </button>
-          </div>
-        </form>
+        </div>
       </div>
     </>
   );
