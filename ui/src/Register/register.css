@@ -1,0 +1,34 @@
+.RegisterForm {
+    background-image: url("/src/Register/login_dackground9.jpg");
+    height: 100vh;
+    overflow: hidden;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    position: relative
+}
+.register_table_back {
+    top: 50%;
+    margin-top: -250px;
+    left: 50%;
+    margin-left: -350px;
+    /*margin: auto;*/
+    /*left: 30%;*/
+    /*right: 20%;*/
+    background-image: url('/src/Register/table52.gif');
+    width: 700px;
+    height: 500px;
+    background-position: center;
+    -webkit-background-size: cover;
+    background-size: cover;
+    position: relative;
+}
+.login_items {
+    top: 31%;
+    position: relative;
+
+}
+.UsernameInput.PasswordInput {
+    alignment: right;
+}
