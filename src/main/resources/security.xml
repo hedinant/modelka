@@ -1,0 +1,37 @@
+<b:beans xmlns="http://www.springframework.org/schema/security"
+         xmlns:b="http://www.springframework.org/schema/beans"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+
+    <b:bean id="voter" class="ru.hedin.modelka.security.PermissionVoter" />
+    <b:bean id="decisionManager" class="org.springframework.security.access.vote.AffirmativeBased">
+        <b:constructor-arg>
+            <b:list>
+                <b:ref bean="voter" />
+            </b:list>
+        </b:constructor-arg>
+    </b:bean>
+
+    <b:bean id="metadataSource" class="ru.hedin.modelka.security.SecurityMetadataSource"/>
+
+    <global-method-security access-decision-manager-ref="decisionManager" metadata-source-ref="metadataSource"/>
+
+    <b:bean id="rest401EntryPoint" class="ru.hedin.modelka.security.RestAuthEntryPoint" />
+    <b:bean id="authFailHandler" class="ru.hedin.modelka.security.AuthenticationFailureHandlerImpl" />
+
+    <http authentication-manager-ref="authManager" entry-point-ref="rest401EntryPoint">
+        <csrf disabled="true"/>
+        <intercept-url pattern="/service/**" access="isAuthenticated()"/>
+        <!-- TODO consider paths -->
+        <form-login authentication-success-forward-url="/service/user/login"
+                    authentication-failure-handler-ref="authFailHandler"/>
+        <logout/>
+    </http>
+
+    <b:bean class="ru.hedin.modelka.security.AuthProvider" id="authProvider"/>
+
+    <authentication-manager alias="authManager" erase-credentials="false">
+        <authentication-provider ref="authProvider"/>
+    </authentication-manager>
+</b:beans>
