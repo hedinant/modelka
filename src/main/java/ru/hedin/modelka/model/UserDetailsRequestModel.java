@@ -1,24 +1,8 @@
-package ru.hedin.modelka.domain;
+package ru.hedin.modelka.model;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "m_user")
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-
+public class UserDetailsRequestModel {
     private String login;
     private String password;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getLogin() {
         return login;
@@ -34,5 +18,10 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return "super.toString()"+login+"  "+password;
     }
 }

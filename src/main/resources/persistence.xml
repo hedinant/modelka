@@ -5,8 +5,8 @@
     <persistence-unit name="ru.easyjava.data.jpa.hibernate">
         <properties>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
-            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
-            <property name="hibernate.connection.url" value="jdbc:h2:mem:test"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL95Dialect"/>
+            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/spring"/>
         </properties>
     </persistence-unit>
 </persistence>
