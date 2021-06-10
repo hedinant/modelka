@@ -2,14 +2,15 @@ package ru.hedin.modelka.security;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import ru.hedin.modelka.domain.ModUser;
 import temp.User;
 
 import java.util.Collection;
 
 public class SecurityUserDetails implements UserDetails {
-    private User user;
+    private ModUser user;
 
-    public SecurityUserDetails(User user) {
+    public SecurityUserDetails(ModUser user) {
         this.user = user;
     }
 
@@ -48,7 +49,7 @@ public class SecurityUserDetails implements UserDetails {
         return true;
     }
 
-    public User getUser() {
+    public ModUser getUser() {
         return user;
     }
 }

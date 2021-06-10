@@ -28,9 +28,10 @@ public class UserRepository {
  //       return entityManager.createQuery("select u from User u",User).getResultList();
  //   }
     @Transactional
-    public ModUser findUserByName (String username){
+    public ModUser getUserByLogin (String username){
 
         List <ModUser> modUserList = entityManager.createQuery("select u from ModUser u",ModUser.class).getResultList();
+
         for (ModUser us: modUserList) {
             if (username.equalsIgnoreCase (us.getUserName())) {
                 return us;}

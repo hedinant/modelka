@@ -1,5 +1,6 @@
 package ru.hedin.modelka.controller;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -33,14 +34,17 @@ public class RegistrationController {
 
         ModUser modUser;
 
-        modUser = userRepository.findUserByName(requestModel.getLogin());
+        modUser = userRepository.getUserByLogin(requestModel.getLogin());
 
         if (modUser != null) {
             return "Already Exist";
         }
         modUser = new ModUser();
                 modUser.setUserName(requestModel.getLogin());
-                modUser.setPassword(requestModel.getPassword());
+        String md5Hex = DigestUtils
+                .md5Hex(requestModel.getPassword()).toLowerCase();
+
+                modUser.setPassword(md5Hex);
 
 // call Service
         if (rs.creteUser( modUser)){

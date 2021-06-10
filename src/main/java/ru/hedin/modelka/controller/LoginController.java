@@ -29,7 +29,7 @@ public InMemoryUserDetailsManager inMemoryUserDetailsManager;
 
         ModUser modUser;
         String str = requestModel.getLogin();
-        modUser = userRepository.findUserByName(str);
+        modUser = userRepository.getUserByLogin(str);
         String passwd = requestModel.getPassword();
 
         if (modUser == null) {return "no such user";}
