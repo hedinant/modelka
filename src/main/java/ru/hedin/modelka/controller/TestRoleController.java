@@ -18,8 +18,8 @@ public class TestRoleController {
     SecurityContext securityContext = SecurityContextHolder.getContext();
 //getAuthorities().toString() - 404
     //.getname() - work
-    String str2= securityContext.getAuthentication().getDetails().toString()+" ";
-    str2+= securityContext.toString()+" Hi ADmin";
+    String str2= securityContext.getAuthentication().getName()+" ";
+    str2+= " Hi ADmin";
     return str2;
     }
 

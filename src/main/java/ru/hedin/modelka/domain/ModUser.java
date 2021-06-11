@@ -8,6 +8,7 @@ import java.util.*;
 
 @Entity
 @Table(name = "mod_user")
+
 public class ModUser {
     @Id
   //  @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -49,7 +50,7 @@ public class ModUser {
 
             if (roles== null) { roles = new HashSet<UserRole>(); }
             roles.add(UserRole.ROLE_USER);
-            longRoles-=1;
+            tempLongRoles-=1;
             
             while (tempLongRoles>0) {
                 if (tempLongRoles>=4) {

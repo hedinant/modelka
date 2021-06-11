@@ -2,6 +2,7 @@ package ru.hedin.modelka.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.actuate.trace.http.HttpTrace;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,16 +24,20 @@ import java.util.Set;
 
         @RequestMapping(value = "/username", method = RequestMethod.GET)
         @ResponseBody
-        public String currentUserName (Principal authentication) {
+ //       @PreAuthorize("isAuthenticated()")
+        // Principal is null -  strange
+        public String currentUserName (Authentication authentication) {
             // String to collect info
-            String str;
+            String str="";
             // Principal info
         // странным образом стал выдавать нул поинтер на аут.гетнаме
-            str = " principal name  "+authentication.getName()+" class "+authentication.getClass()+"/n";
+            if (authentication==null){return "Not logged in";}
+
+            str = " principal name  "+authentication.getName()+"\n";
             // ROles
-            for (UserRole role: UserRole.values()  ) {
-                str+= "ROle name "+role.name()+" ROle ordinal "+role.ordinal()+"/n  ";
-            }
+  //          for (UserRole role: UserRole.values()  ) {
+   //             str+= "ROle name "+role.name()+" ROle ordinal "+role.ordinal()+"/n  ";
+     //       }
 // ROles from user
             ModUser user = rep.getUserByLogin(authentication.getName());
             Set<UserRole> ur = user.getRoles();
