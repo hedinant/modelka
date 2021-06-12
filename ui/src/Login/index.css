@@ -1,5 +1,4 @@
 .LoginForm{
-
     background-image: url("/src/Login/login_dackground9.jpg");
     height: 100vh;
     overflow: hidden;
@@ -9,20 +8,6 @@
     font-size: 20px;
     position: relative
 }
-
-.Username{
-    alignment: right;
-
-    /*left: 200px;*/
-    /*padding-top: 200px;*/
-}
-.UsernameInput {
-    /*margin-left: 15px;*/
-}
-.PasswordInput{
-    /*margin-left: 20px;*/
-}
-
 .Button1 {
     background: #633e0e;
     color: #f5e1c2;
@@ -47,7 +32,6 @@
 }
 .Okreg {
     alignment: right;
-
 }
 .login_table_back {
         top: 50%;
@@ -63,10 +47,35 @@
     background-position: center;
     -webkit-background-size: cover;
     background-size: cover;
+    position: absolute;
+}
+.login_frame {
+    top: 50%;
+    margin-top: -135px;
+    left: 50%;
+    margin-left: -140px;
+       background-image: url('/src/Login/login_frame.gif');
+    width: 280px;
+    height: 180px;
+    background-position: center;
+    -webkit-background-size: cover;
+    background-size: cover;
     position: relative;
 }
 .login_items{
     top: 31%;
-
     position: relative;
+}
+
+.Pass_log {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-top: 10px;
 }

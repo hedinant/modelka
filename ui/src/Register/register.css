@@ -8,6 +8,7 @@
     font-size: 20px;
     position: relative
 }
+
 .register_table_back {
     top: 50%;
     margin-top: -250px;
@@ -22,13 +23,36 @@
     background-position: center;
     -webkit-background-size: cover;
     background-size: cover;
+    position: absolute;
+}
+
+.reg_frame {
+    top: 50%;
+    margin-top: -240px;
+    left: 50%;
+    margin-left: -200px;
+    background-image: url('/src/Register/register_frame.gif');
+    width: 380px;
+    height: 400px;
+    background-position: center;
+    -webkit-background-size: cover;
+    background-size: cover;
     position: relative;
 }
-.login_items {
+.reg_items {
     top: 31%;
     position: relative;
-
 }
-.UsernameInput.PasswordInput {
-    alignment: right;
+
+.Pass_reg {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-top: 10px;
 }

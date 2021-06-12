@@ -1,69 +1,73 @@
-import { useState } from "react";
+import {useState} from "react";
 import "./index.css";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 async function loginUser(username, password) {
-  return fetch("http://localhost:8080/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ username, password }),
-  })
-    .then((data) => "token" /*data.json()*/)
-    .catch((reason) => "server not responded");
+    return fetch("http://localhost:8080/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({username, password}),
+    })
+        .then((data) => "token" /*data.json()*/)
+        .catch((reason) => "server not responded");
 }
 
-export default function Login({ setToken }) {
-  console.log("Login in " + setToken);
+export default function Login({setToken}) {
+    console.log("Login in " + setToken);
 
-  const [username, setUserName] = useState();
-  const [password, setPassword] = useState();
+    const [username, setUserName] = useState();
+    const [password, setPassword] = useState();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const token = await loginUser(username, password);
-    console.log("submit " + setToken);
-    setToken(token);
-  };
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const token = await loginUser(username, password);
+        console.log("submit " + setToken);
+        setToken(token);
+    };
 
-  return (
-    <>
+    return (
+        <>
 
-      <div className="LoginForm">
-        <div className="login_table_back">
-          <div className="login_items">
-            <form onSubmit={handleSubmit}>
-              <div className="Username">
-                <span>Логин</span>
-                <input
-                    className="UsernameInput"
-                    type="text"
-                    onChange={(e) => setUserName(e.target.value)}
-                />
-              </div>
-              {/*<label className="">*/}
-                <span>Пароль</span>
-                <input
-                    className="PasswordInput"
-                    type="password"
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-              {/*</label>{" "}*/}
-              <div className="Okreg">
-                <button type="submit" className="Button1" name="login">
-                  OK
-                </button>
-                <Link className="Registration" to="/register">Регистрация</Link>
-                {/*<a className="Registration" href="">*/}
-                {/*  Регистрация*/}
-                {/*</a>*/}
+            <div className="LoginForm">
+                <div className="login_table_back">
+                    <div className="login_frame">
+                        <div className="login_items">
+                            <form onSubmit={handleSubmit}>
+                                <label className="Pass_log">
+                                    <span>Логин</span>
+                                    <input
+                                        className="UsernameInput"
+                                        type="text"
+                                        onChange={(e) => setUserName(e.target.value)}
+                                    />
 
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </>
-  );
+                                </label>
+                                <label className="Pass_log">
+                                    <span>Пароль</span>
+                                    <input
+                                        className="PasswordInput"
+                                        type="password"
+                                        onChange={(e) => setPassword(e.target.value)}
+                                    />
+
+                                </label>
+                                <div className="Okreg">
+                                    <button type="submit" className="Button1" name="login">
+                                        OK
+                                    </button>
+                                    <Link className="Registration" to="/register">Регистрация</Link>
+                                    {/*<a className="Registration" href="">*/}
+                                    {/*  Регистрация*/}
+                                    {/*</a>*/}
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
+    );
 }
