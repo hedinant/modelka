@@ -5,7 +5,6 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import ru.hedin.modelka.domain.ModUser;
 import ru.hedin.modelka.domain.RegistrationService;
-import ru.hedin.modelka.model.UserDetailsRequestModel;
 import ru.hedin.modelka.service.TestRepository;
 import ru.hedin.modelka.service.UserRepository;
 
@@ -18,7 +17,7 @@ public class RegistrationController {
     @Autowired
     private UserRepository userRepository;
     @Autowired
-    RegistrationService rs ;
+    private RegistrationService registrationService ;
 
     @GetMapping(name = "")
     public String test() {
@@ -29,24 +28,19 @@ public class RegistrationController {
     @PostMapping(name = "",
             consumes = {MediaType.APPLICATION_JSON_VALUE}
     )
-    public String registration(@RequestBody UserDetailsRequestModel requestModel) {
+    public String registration(@RequestBody ModUser requestModel) {
 
         ModUser modUser;
 
-        modUser = userRepository.findUserByName(requestModel.getLogin());
+        modUser = userRepository.getUserByLogin(requestModel.getUserName());
 
         if (modUser != null) {
             return "Already Exist";
         }
-        modUser = new ModUser();
-                modUser.setUserName(requestModel.getLogin());
-                modUser.setPassword(requestModel.getPassword());
-
 // call Service
-        if (rs.creteUser( modUser)){
+        if (registrationService.creteUser( requestModel)){
             return "All Ok";
         }
-
         return "something wrong";
     }
 

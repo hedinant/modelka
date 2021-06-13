@@ -3,3 +3,11 @@
 /modelka.iml
 /ui/ui.iml
 /main.iml
+/src/main/resources/static/node_modules/
+/src/main/.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions

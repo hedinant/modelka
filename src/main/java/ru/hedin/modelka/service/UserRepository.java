@@ -4,7 +4,9 @@ import org.springframework.stereotype.Repository;
 import ru.hedin.modelka.domain.ModUser;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -28,13 +30,24 @@ public class UserRepository {
  //       return entityManager.createQuery("select u from User u",User).getResultList();
  //   }
     @Transactional
-    public ModUser findUserByName (String username){
-
-        List <ModUser> modUserList = entityManager.createQuery("select u from ModUser u",ModUser.class).getResultList();
-        for (ModUser us: modUserList) {
-            if (username.equalsIgnoreCase (us.getUserName())) {
-                return us;}
+    public ModUser getUserByLogin (String username){
+        ModUser modUser=null;
+        TypedQuery<ModUser> query = entityManager.createQuery(
+                "select u from ModUser u where u.userName = :username",ModUser.class);
+        try {
+             modUser = query.setParameter("username", username).getSingleResult();
         }
-        return null;
+        catch (NoResultException e ){
+//Ignore this because as per your logic this is ok!
+            }
+
+        return modUser;
+      //  List <ModUser> modUserList = entityManager.createQuery("select u from ModUser u",ModUser.class).getResultList();
+
+      //  for (ModUser us: modUserList) {
+      //      if (username.equalsIgnoreCase (us.getUserName())) {
+      //          return us;}
+      //  }
+      //  return null;
     }
 }
