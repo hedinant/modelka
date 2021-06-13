@@ -34,8 +34,9 @@ public class AuthProvider implements AuthenticationProvider {
     private Authentication localAuth(String password, ModUser user)  {
    //     String hash = password; //Тут hash алгорититм нужен
         // Hash похоже лишнийtemp = "827ccb0eea8a706c4c34a16891f84e7b" - 12345
+        String toHash = user.getLogin()+"salt"+password;
         String md5Hex = DigestUtils
-                .md5Hex(password).toLowerCase();
+                .md5Hex(toHash).toLowerCase();
 
         if (md5Hex.equals(user.getPassword())) {
             return new AuthenticationImpl(user);

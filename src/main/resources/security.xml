@@ -26,10 +26,10 @@
         <intercept-url pattern="/register" access="isAnonymous()"/>
         <intercept-url pattern="/username" access="isAuthenticated()"/>
 
-        <intercept-url pattern="/test/admin" access="hasRole('ROLE_ADMIN')"/>
-        <intercept-url pattern="/test/gm" access="hasRole('ROLE_GM')"/>
+  <!--      <intercept-url pattern="/test/admin" access="hasRole('ROLE_ADMIN')"/>-->
+  <!--      <intercept-url pattern="/test/gm" access="hasRole('ROLE_GM')"/>
         <intercept-url pattern="/test/user" access="hasRole('ROLE_USER')"/>
-
+Not needed using HasRole-->
         <intercept-url pattern="/**" access="isAuthenticated()"/>
         <!-- TODO consider paths -->
         <form-login authentication-success-forward-url="/username"

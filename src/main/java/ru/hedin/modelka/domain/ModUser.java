@@ -5,6 +5,7 @@ import ru.hedin.modelka.security.UserRole;
 
 import javax.persistence.*;
 import java.util.*;
+import org.apache.commons.lang3.EnumUtils;
 
 @Entity
 @Table(name = "mod_user")
@@ -37,34 +38,14 @@ public class ModUser {
     }
     //calculation of longRoles
     public void setLongRoles(Set<UserRole> roleSet) {
-        longRoles=0;
-        roles.forEach( (rol)->{
-            longRoles+= (long) Math.pow(2,rol.ordinal());
-        });
+
+        longRoles = EnumUtils.generateBitVector(UserRole.class,roles);
 
     }
 
     public  Set<UserRole>  getRoles() {
-            long tempLongRoles = longRoles;
 
-
-            if (roles== null) { roles = new HashSet<UserRole>(); }
-            roles.add(UserRole.ROLE_USER);
-            tempLongRoles-=1;
-            
-            while (tempLongRoles>0) {
-                if (tempLongRoles>=4) {
-                    tempLongRoles-=4;
-                    roles.add(UserRole.ROLE_GM);
-                }
-                if (tempLongRoles>=2) {
-                    tempLongRoles-=2;
-                    roles.add(UserRole.ROLE_ADMIN);
-                }
-            }
-
-
-        return roles;
+        return EnumUtils.processBitVector(UserRole.class,longRoles);
     }
 
     public long getId() {

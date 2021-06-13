@@ -21,7 +21,8 @@ public class SecurityUserDetails implements UserDetails {
 
     @Override
     public String getPassword() {
-        return user.getPassword();
+//Hedin ask         return user.getPassword();
+        return null;
     }
 
     @Override

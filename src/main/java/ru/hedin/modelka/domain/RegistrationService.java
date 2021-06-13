@@ -1,5 +1,6 @@
 package ru.hedin.modelka.domain;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,11 @@ public class RegistrationService {
  //       user2Save.setPassword(modUser.getPassword());
         //need to set Roles and maybe something else
 
+
+        String toHash = modUser.getLogin()+"salt"+modUser.getPassword();
+        String md5Hex = DigestUtils
+                .md5Hex(toHash).toLowerCase();
+        modUser.setPassword(md5Hex);
 
         if (userRepository.saveUser(modUser)) {
             return true;
