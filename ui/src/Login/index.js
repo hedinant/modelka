@@ -3,15 +3,22 @@ import "./index.css";
 import { Link } from "react-router-dom";
 
 async function loginUser(username, password) {
-  return fetch("http://localhost:8080/login", {
+
+  var formData = new FormData();
+  formData.append('username',username);
+  formData.append('password', password);
+
+  const response = await fetch("http://localhost:8080/login", {
     method: "POST",
+    mode: "no-cors",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "form-data",
     },
-    body: JSON.stringify({ username, password }),
-  })
-    .then((data) => "token" /*data.json()*/)
-    .catch((reason) => "server not responded");
+    body: formData
+  });
+  return response.headers.get("cockie");
+  /*  .then((data) => "token" /!*data.json()*!/)
+    .catch((reason) => "server not responded");*/
 }
 
 export default function Login({ setToken }) {
