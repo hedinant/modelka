@@ -4,19 +4,66 @@ import { Link } from "react-router-dom";
 
 async function loginUser(username, password) {
 
-  var formData = new FormData();
+  let formData = new FormData();
   formData.append('username',username);
   formData.append('password', password);
 
-  const response = await fetch("http://localhost:8080/login", {
+ /* const response = await fetch("http://localhost:8080/login", {
     method: "POST",
-    mode: "no-cors",
+    mode: "cors",
+    referrer: "origin",
     headers: {
-      "Content-Type": "form-data",
+      "Content-Type": "multipart/form-data",
+      "credentials" : `include`,
     },
     body: formData
+  }).catch(err=>alert(`Error: ${err}`));
+
+  console.log(response.ok);*/
+
+ //Hedin want -  not working
+  let response1;
+  try {
+
+    response1 = await fetch('http://localhost:8080/login', {
+      method: 'POST',
+      mode: "cors",
+      body: new URLSearchParams({
+        'username': username,
+        'password': password,
+      })
+    });
+  }
+  catch (e) {
+    console.error(`ErroR:  `, e);
+  }
+  try {
+  let  js = await response1.json();
+  console.log(js.toString());
+  }
+  catch (e) {
+    alert(e);
+  }
+  /*
+ Test of username
+  fetch("http://localhost:8080/username", {
+    method: 'GET',
+    credentials: 'same-origin',
+    mode: "no-cors",
+  })
+      .then((response) => response.json())
+      .then((json) => {
+        alert ("получили");
+        console.log('Gotcha');
+      }).catch((err) => {
+    console.log(err);
+
   });
-  return response.headers.get("cockie");
+*/
+
+
+
+  return response1;
   /*  .then((data) => "token" /!*data.json()*!/)
     .catch((reason) => "server not responded");*/
 }

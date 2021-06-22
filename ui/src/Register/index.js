@@ -4,19 +4,19 @@ import { Link } from "react-router-dom";
 
 export default function Register() {
 
-    let out = new String;
+    let out = new String();
 const myInit = {
     metod: 'GET' ,
     credentials : "same-origin",
     mode: "no-cors",
 
         }
-    fetch ("http://localhost:8080/username", myInit)
+/*    fetch ("http://localhost:8080/username", myInit)
         .then(function (responce) {
         let answer = responce.text();
         out = "<div>"+answer+"</div>";
-        return ("<div>"+answer+"</div>")
-        })
+        return ("<div>"+answer+"</div>");
+        })*/
 
 
 
@@ -29,6 +29,6 @@ const myInit = {
     return response.text();
 */
 
-    return (out)
+    return (`<div>${out}</div>`);
 
 }
