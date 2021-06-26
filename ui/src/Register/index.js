@@ -1,5 +1,6 @@
-import {Link} from "react-router-dom";
 import "./register.css";
+import "../alignment.css";
+import {Link} from "react-router-dom";
 
 export default function Register() {
     return (
@@ -10,7 +11,7 @@ export default function Register() {
                         {/*<form onSubmit={handleSubmit}>*/}
                         <form>
                             <div className="Username">
-                                <label className="Pass_reg">
+                                <label className="Pass">
                                     <span>Логин</span>
                                     <input
                                         className="UsernameInput"
@@ -19,7 +20,7 @@ export default function Register() {
                                 </label>{" "}
                             </div>
                             <div className="Username">
-                                <label className="Pass_reg">
+                                <label className="Pass">
                                     <span>E-Mail</span>
                                     <input
                                         className="UsernameInput"
@@ -47,14 +48,24 @@ export default function Register() {
                             </div>
 
                             <div className="Okreg">
-                                <button type="submit" className="Button1" name="login">
-                                    OK
-                                </button>
+                                <button type="submit" className="Button2" name="login" ><span>OK</span> </button>
+                                <div className="RestBack">
+                                <p><Link className="Restore" to="/register">Восстановить пароль</Link>
+                                    </p>
+                                    <p><Link className="Back" to="/register">На главную</Link>
+                                    </p>
+                                </div>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
+            {/*<div className="Restback">*/}
+            {/*<p><Link className="Restore" to="/register">Восстановить пароль</Link>*/}
+            {/*</p>*/}
+            {/*<p><Link className="Back" to="/register">На главную</Link>*/}
+            {/*</p>*/}
+            {/*</div>*/}
         </div>
     )
 

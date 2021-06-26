@@ -1,9 +1,10 @@
 import {useState} from "react";
 import "./index.css";
+import "../alignment.css";
 import {Link} from "react-router-dom";
 
 async function loginUser(username, password) {
-    return fetch("http://localhost:8080/login", {
+    return fetch("http://localhost:3000/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -35,7 +36,7 @@ export default function Login({setToken}) {
                     <div className="login_frame">
                         <div className="login_items">
                             <form onSubmit={handleSubmit}>
-                                <label className="Pass_log">
+                                <label className="Pass">
                                     <span>Логин</span>
                                     <input
                                         className="UsernameInput"
@@ -44,7 +45,7 @@ export default function Login({setToken}) {
                                     />
 
                                 </label>
-                                <label className="Pass_log">
+                                <label className="Pass">
                                     <span>Пароль</span>
                                     <input
                                         className="PasswordInput"

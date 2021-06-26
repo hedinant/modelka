@@ -1,3 +1,9 @@
+:root {
+    --brown1: #311702;
+    --black: #0d041b;
+    --bel: #f5efd9;
+    --grey: rgba(0, 0, 0, .4);
+}
 .RegisterForm {
     background-image: url("/src/Register/login_dackground9.jpg");
     height: 100vh;
@@ -5,7 +11,7 @@
     align-items: center;
     text-align: center;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 22px;
     position: relative
 }
 
@@ -13,13 +19,13 @@
     top: 50%;
     margin-top: -250px;
     left: 50%;
-    margin-left: -350px;
+    margin-left: -300px;
     /*margin: auto;*/
     /*left: 30%;*/
     /*right: 20%;*/
-    background-image: url('/src/Register/table52.gif');
-    width: 700px;
-    height: 500px;
+    background-image: url('/src/Register/table7.gif');
+    width: 600px;
+    height: 350px;
     background-position: center;
     -webkit-background-size: cover;
     background-size: cover;
@@ -39,8 +45,9 @@
     background-size: cover;
     position: relative;
 }
+
 .reg_items {
-    top: 31%;
+    top: 28%;
     position: relative;
 }
 
@@ -55,4 +62,93 @@
     -ms-flex-align: center;
     align-items: center;
     margin-top: 10px;
+
+    /*color: rgba(0, 0, 0,.4);*/
+    /*text-shadow: #f5efd9 -1px -1px 1px,*/
+    /*#0d041b 1.2px 1.2px 1px,*/
+    /*#311702 -3px -3px 3px;*/
+    /*mix-blend-mode: hard-light;*/
+    color: var(--grey);
+    text-shadow: var(--bel) -1px -1px 1px,
+    var(--black) 1.2px 1.2px 1px,
+    var(--brown1) -3px -3px 3px;
+    mix-blend-mode: hard-light;
+}
+.Pass {
+    /*color: rgba(0, 0, 0,.95);*/
+    /*text-shadow: #f0e1c4 -1px -1px 0,*/
+    /*#0b1225 1px 1px 0;*/
+    /*mix-blend-mode: difference;*/
+    /*color: rgba(0, 0, 0,.4);*/
+    /*text-shadow: #f4ebca -1px -1px 1px,*/
+    /*#0b1225 1px 1px 1px;*/
+    /*mix-blend-mode: hard-light;*/
+    color: var(--grey);
+    text-shadow: var(--bel) -1px -1px 1px,
+    var(--black) 1px 1px 1px,
+    var(--bel) 3px 3px 3px;
+    mix-blend-mode: luminosity;
+}
+.Okreg {
+    width: 500px;
+    position: relative;
+    right: 15%
+}
+
+.Restore, .Back {
+    color: #0d01ac;
+    font-weight: normal;
+    font-size: 17px;
+}
+
+.Back {
+    margin-right: 55px;
+}
+
+.Restore {
+    margin-left: 20px;
+}
+
+.Button2 {
+    background-image: url('/src/Register/Button33.gif');
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    /*border: 1px solid;*/
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 26px;
+}
+
+.button2:after {
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    content: ' ';
+    width: 100%;
+    height: 100%;
+    border: 1px solid;
+    border-right-width: 0;
+    transform: scaleX(0);
+
+    transform-origin: 0 0;
+    transition: transform .3s, border .1s .3s;
+    box-sizing: border-box;
+}
+.Button2 span {
+    font-size: 16px;
+    font-weight: bolder;
+    color: var(--grey);
+    text-shadow: var(--bel) -1px -1px 1px,
+    var(--black) 1.2px 1.2px 1px,
+    var(--brown1) -3px -3px 3px;
+    mix-blend-mode: hard-light;
+}
+
+.RestBack {
+    position: relative;
+    margin-top: -60px;
+    margin-left: 250px;
+    line-height: 0.5;
 }
