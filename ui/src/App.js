@@ -1,9 +1,11 @@
+import React from "react"
 import "./App.css";
 import Login from "./Login";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Dashboard from "./Dashboard";
 import Register from "./Register";
 import { useState } from "react";
+//import React from "react-in-jsx-scope";
 
 function App() {
   const [token, setToken] = useState();

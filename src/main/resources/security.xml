@@ -22,9 +22,10 @@
 
     <http authentication-manager-ref="authManager" entry-point-ref="rest401EntryPoint">
         <csrf disabled="true"/>
+        <intercept-url pattern="/" access="permitAll()"/>
         <intercept-url pattern="/login*" access="isAnonymous()" />
-        <intercept-url pattern="/register" access="isAnonymous()"/>
-        <intercept-url pattern="/username" access="isAuthenticated()"/>
+        <intercept-url pattern="/register*" access="isAnonymous()"/>
+        <intercept-url pattern="/username" access="permitAll()"/>
 
   <!--      <intercept-url pattern="/test/admin" access="hasRole('ROLE_ADMIN')"/>-->
   <!--      <intercept-url pattern="/test/gm" access="hasRole('ROLE_GM')"/>

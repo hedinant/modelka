@@ -1,6 +1,8 @@
+import React from "react";
 import { useState } from "react";
 import "./index.css";
 import { Link } from "react-router-dom";
+//import React from "react-in-jsx-scope";
 
 async function loginUser(username, password) {
 
@@ -25,7 +27,7 @@ async function loginUser(username, password) {
   let response1;
   try {
 
-    response1 = await fetch('http://localhost:8080/login', {
+    response1 = await fetch('http://localhost:3000/login', {
       method: 'POST',
       mode: "cors",
       body: new URLSearchParams({
@@ -44,12 +46,12 @@ async function loginUser(username, password) {
   catch (e) {
     alert(e);
   }
-  /*
- Test of username
-  fetch("http://localhost:8080/username", {
+
+ //Test of username
+  fetch("http://localhost:3000/username", {
     method: 'GET',
-    credentials: 'same-origin',
-    mode: "no-cors",
+    credentials: 'include',
+    mode: "cors",
   })
       .then((response) => response.json())
       .then((json) => {
@@ -59,8 +61,26 @@ async function loginUser(username, password) {
     console.log(err);
 
   });
-*/
 
+// Test of registr new user
+  fetch("http://localhost:3000/register", {
+    method: 'POST',
+    credentials: 'include',
+    mode: "cors",
+    headers: { "Content-Type": "application/json" },
+    body:  JSON.stringify( {
+      'userName': username,
+      'password': password,
+    })
+  })
+      .then((response) => response.json())
+      .then((json) => {
+        alert ("получили");
+        console.log('Gotcha');
+      }).catch((err) => {
+    console.log(err);
+
+  });
 
 
   return response1;
@@ -82,7 +102,7 @@ export default function Login({ setToken }) {
   };
 
   return (
-    <>
+    <div>
       <div className="LoginForm">
         <div className="login_table_back">
           <div className="login_items">
@@ -116,6 +136,6 @@ export default function Login({ setToken }) {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
