@@ -37,8 +37,8 @@ public class PersistenceJPAConfig{
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.ds.PGSimpleDataSource");
         dataSource.setUrl("jdbc:postgresql://localhost:5432/spring");
-        dataSource.setUsername("springuser");
-        dataSource.setPassword("12345");
+        dataSource.setUsername("postgres");
+        dataSource.setPassword("qwe123");
 
         return dataSource;
     }

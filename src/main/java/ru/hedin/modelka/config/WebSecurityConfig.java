@@ -28,13 +28,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
 
-        http.cors().configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues());
-
-
-        http.formLogin().defaultSuccessUrl("/username", true);
- //       http.authorizeRequests()
- //               .anyRequest().authenticated()
- //               .and().httpBasic();
+//        http.cors().configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues());
+//
+//
+//        http.formLogin().defaultSuccessUrl("/username", true);
+        //       http.authorizeRequests()
+        //               .anyRequest().authenticated()
+        //               .and().httpBasic();
 
 
 /*
