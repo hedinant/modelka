@@ -2,16 +2,17 @@ package ru.hedin.modelka.security;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
+import ru.hedin.modelka.domain.ModUser;
 import temp.User;
 
 import java.util.Collection;
 
 public class AuthenticationImpl implements Authentication {
-    private User user;
+    private ModUser user;
     private boolean authenticated;
     private SecurityUserDetails userDetails;
 
-    public AuthenticationImpl(User user) {
+    public AuthenticationImpl(ModUser user) {
         userDetails = new SecurityUserDetails(user);
         this.user = user;
         authenticated = true;
@@ -52,7 +53,7 @@ public class AuthenticationImpl implements Authentication {
         return user.getLogin();
     }
 
-    public User getUser() {
+    public ModUser getUser() {
         return user;
     }
 }
