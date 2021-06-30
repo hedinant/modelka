@@ -19,11 +19,13 @@
 
     <b:bean id="rest401EntryPoint" class="ru.hedin.modelka.security.RestAuthEntryPoint" />
     <b:bean id="authFailHandler" class="ru.hedin.modelka.security.AuthenticationFailureHandlerImpl" />
+    <b:bean id="authSuccsessHandler" class="ru.hedin.modelka.security.AuthenticationSuccsessHandlerimpl"/>
+
 
     <http authentication-manager-ref="authManager" entry-point-ref="rest401EntryPoint">
         <csrf disabled="true"/>
         <intercept-url pattern="/" access="permitAll()"/>
-        <intercept-url pattern="/login*" access="isAnonymous()" />
+        <intercept-url pattern="/login" access="permitAll()" />
         <intercept-url pattern="/register*" access="isAnonymous()"/>
         <intercept-url pattern="/username" access="permitAll()"/>
 
@@ -34,7 +36,8 @@ Not needed using HasRole-->
         <intercept-url pattern="/**" access="isAuthenticated()"/>
         <!-- TODO consider paths -->
         <form-login authentication-success-forward-url="/username"
-                    authentication-failure-handler-ref="authFailHandler"/>
+                    authentication-failure-handler-ref="authFailHandler"
+                    authentication-success-handler-ref="authSuccsessHandler"/>
         <logout/>
     </http>
 

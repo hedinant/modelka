@@ -2,11 +2,9 @@ package ru.hedin.modelka.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.*;
 
+@EnableWebMvc
 @Configuration
 public class MvcConfig
         implements WebMvcConfigurer {
@@ -20,7 +18,7 @@ public class MvcConfig
 
     }
 
-   @Override
+ //  @Override
  //  @Bean
 
     public void addCorsMappings(CorsRegistry registry) {

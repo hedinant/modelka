@@ -27,8 +27,9 @@ async function loginUser(username, password) {
   let response1;
   try {
 
-    response1 = await fetch('http://localhost:3000/login', {
+    response1 = await fetch('http://localhost:8080/login', {
       method: 'POST',
+      credentials: 'include',
       mode: "cors",
       body: new URLSearchParams({
         'username': username,
@@ -48,7 +49,7 @@ async function loginUser(username, password) {
   }
 
  //Test of username
-  fetch("http://localhost:3000/username", {
+  fetch("http://localhost:8080/username", {
     method: 'GET',
     credentials: 'include',
     mode: "cors",
@@ -63,7 +64,7 @@ async function loginUser(username, password) {
   });
 
 // Test of registr new user
-  fetch("http://localhost:3000/register", {
+ /* fetch("http://localhost:3000/register", {
     method: 'POST',
     credentials: 'include',
     mode: "cors",
@@ -81,7 +82,7 @@ async function loginUser(username, password) {
     console.log(err);
 
   });
-
+*/
 
   return response1;
   /*  .then((data) => "token" /!*data.json()*!/)
