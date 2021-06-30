@@ -17,7 +17,7 @@ public class RegistrationController {
     @Autowired
     private UserRepository userRepository;
     @Autowired
-    private RegistrationService registrationService ;
+    private RegistrationService registrationService;
 
     @GetMapping(name = "")
     public String test() {
@@ -25,9 +25,7 @@ public class RegistrationController {
         return "test_" + size;
     }
 
-    @PostMapping(name = "",
-            consumes = {MediaType.APPLICATION_JSON_VALUE}
-    )
+    @PostMapping(name = "", consumes = {MediaType.APPLICATION_JSON_VALUE})
     public String registration(@RequestBody ModUser requestModel) {
 
         ModUser modUser;
@@ -38,7 +36,7 @@ public class RegistrationController {
             return "Already Exist";
         }
 // call Service
-        if (registrationService.creteUser( requestModel)){
+        if (registrationService.creteUser(requestModel)) {
             return "All Ok";
         }
         return "something wrong";

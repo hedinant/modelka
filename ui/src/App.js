@@ -16,7 +16,7 @@ function App() {
 
   function MainApp() {
     if (!token) {
-      console.log("Login " + setToken)
+      console.log("Login form app " + setToken)
       return <Login setToken={setToken} />;
     }
     return <Dashboard token={token} />
