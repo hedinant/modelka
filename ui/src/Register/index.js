@@ -47,14 +47,25 @@ export default function Register() {
                                 </label>
                             </div>
 
-                            <div className="Okreg">
+                            <div className="Okreg1">
                                 <button type="submit" className="Button2" name="login" ><span>OK</span> </button>
                                 <div className="RestBack">
-                                <p><Link className="Restore" to="/register">Восстановить пароль</Link>
+                                    <p><Link className="Restore" to="/register">Восстановить пароль</Link>
                                     </p>
                                     <p><Link className="Back" to="/register">На главную</Link>
                                     </p>
                                 </div>
+                                {/*<span><Link className="Back" to="/register">На главную</Link></span>*/}
+                                {/*<button type="submit" className="Button2" name="login" ><span>OK</span> </button>*/}
+                                {/*<span><Link className="Restore" to="/register">Восстановить пароль</Link></span>*/}
+
+                                {/*<button type="submit" className="Button2" name="login" ><span>OK</span> </button>*/}
+                                {/*<div className="RestBack">*/}
+                                {/*<p><Link className="Restore" to="/register">Восстановить пароль</Link>*/}
+                                {/*    </p>*/}
+                                {/*    <p><Link className="Back" to="/register">На главную</Link>*/}
+                                {/*    </p>*/}
+                                {/*</div>*/}
                             </div>
                         </form>
                     </div>

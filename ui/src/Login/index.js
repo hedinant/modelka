@@ -11,8 +11,8 @@ async function loginUser(username, password) {
         },
         body: JSON.stringify({username, password}),
     })
-        .then((data) => "token" /*data.json()*/)
-        .catch((reason) => "server not responded");
+        // .then((data) => "token" /*data.json()*/)
+        // .catch((reason) => "server not responded");
 }
 
 export default function Login({setToken}) {
@@ -56,9 +56,9 @@ export default function Login({setToken}) {
                                 </label>
                                 <div className="Okreg">
                                     <button type="submit" className="Button1" name="login">
-                                        OK
+                                        <span> OK </span>
                                     </button>
-                                    <Link className="Registration" to="/register">Регистрация</Link>
+                                    <p><Link className="Registration" to="/register">Регистрация</Link></p>
                                     {/*<a className="Registration" href="">*/}
                                     {/*  Регистрация*/}
                                     {/*</a>*/}

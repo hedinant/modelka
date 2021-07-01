@@ -3,6 +3,7 @@
     --black: #0d041b;
     --bel: #f5efd9;
     --grey: rgba(0, 0, 0, .4);
+    --blue: #ced5fe;
 }
 .RegisterForm {
     background-image: url("/src/Register/login_dackground9.jpg");
@@ -11,7 +12,7 @@
     align-items: center;
     text-align: center;
     font-weight: bold;
-    font-size: 22px;
+    font-size: 20px;
     position: relative
 }
 
@@ -47,7 +48,7 @@
 }
 
 .reg_items {
-    top: 28%;
+    top: 32%;
     position: relative;
 }
 
@@ -70,9 +71,9 @@
     /*mix-blend-mode: hard-light;*/
     color: var(--grey);
     text-shadow: var(--bel) -1px -1px 1px,
-    var(--black) 1.2px 1.2px 1px,
-    var(--brown1) -3px -3px 3px;
-    mix-blend-mode: hard-light;
+    var(--black) 1px 1px 1px,
+    var(--bel) 3px 3px 3px;
+    mix-blend-mode: luminosity;
 }
 .Pass {
     /*color: rgba(0, 0, 0,.95);*/
@@ -89,34 +90,36 @@
     var(--bel) 3px 3px 3px;
     mix-blend-mode: luminosity;
 }
-.Okreg {
+.Okreg1 {
     width: 500px;
     position: relative;
     right: 15%
 }
 
 .Restore, .Back {
-    color: #0d01ac;
+    color: var(--blue);
     font-weight: normal;
-    font-size: 17px;
+    font-size: 18px;
+    text-shadow: var(--black) -2px -2px 2px,
+    var(--black) 2px 2px 2px,
 }
 
 .Back {
-    margin-right: 55px;
+    /*margin-left: 10px;*/
 }
 
 .Restore {
-    margin-left: 20px;
+    /*margin-left: 84px;*/
 }
 
 .Button2 {
-    background-image: url('/src/Register/Button33.gif');
+    background-image: url('/src/Register/Button35.gif');
     border-radius: 50%;
-    width: 48px;
-    height: 48px;
+    width: 42px;
+    height: 42px;
     /*border: 1px solid;*/
-    font-weight: bold;
-    font-size: 18px;
+    /*font-weight: bold;*/
+    /*font-size: 15px;*/
     margin-top: 26px;
 }
 
@@ -137,18 +140,18 @@
     box-sizing: border-box;
 }
 .Button2 span {
-    font-size: 16px;
-    font-weight: bolder;
+    font-size: 15px;
+    font-weight: bold;
     color: var(--grey);
     text-shadow: var(--bel) -1px -1px 1px,
-    var(--black) 1.2px 1.2px 1px,
-    var(--brown1) -3px -3px 3px;
-    mix-blend-mode: hard-light;
+    var(--black) 1px 1px 1px,
+    var(--bel) 3px 3px 3px;
+    mix-blend-mode: luminosity;
+    margin-top: -10px;
 }
 
 .RestBack {
     position: relative;
-    margin-top: -60px;
-    margin-left: 250px;
-    line-height: 0.5;
+    margin-top: 80px;
+        line-height: 0.5;
 }
