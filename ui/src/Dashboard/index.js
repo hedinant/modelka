@@ -1,4 +1,6 @@
+import React from "react";
 import logo from "../logo.svg";
+//import React from "react-in-jsx-scope";
 
 export default function Dashboard({token}) {
     return (

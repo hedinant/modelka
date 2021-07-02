@@ -11,6 +11,10 @@ import java.io.IOException;
 public class AuthenticationFailureHandlerImpl implements AuthenticationFailureHandler {
     @Override
     public void onAuthenticationFailure(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
+
+        httpServletResponse.setStatus(200);
+        httpServletResponse.sendRedirect("http://localhost:8080/login");
         httpServletResponse.sendError(HttpServletResponse.SC_UNAUTHORIZED);
+
     }
 }
