@@ -37,7 +37,6 @@ public class RegistrationController {
         }
 // call Service
 
-        
         if (registrationService.creteUser(requestModel)) {
             return "All Ok";
         }
