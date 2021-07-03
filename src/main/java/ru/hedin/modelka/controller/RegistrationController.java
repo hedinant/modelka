@@ -36,6 +36,8 @@ public class RegistrationController {
             return "Already Exist";
         }
 // call Service
+
+        
         if (registrationService.creteUser(requestModel)) {
             return "All Ok";
         }
