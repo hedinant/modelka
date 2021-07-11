@@ -15,10 +15,10 @@ function App() {
   // }
 
   function MainApp() {
-    if (!token) {
-      console.log("Login " + setToken)
-      return <Login setToken={setToken} />;
-    }
+    // if (!token) {
+    //   console.log("Login " + setToken)
+    //   return <Login setToken={setToken} />;
+    // }
     return <Dashboard token={token} />
   }
 
