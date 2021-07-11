@@ -1,0 +1,54 @@
+:root {
+    --brown1: #311702;
+    --black: #0d041b;
+    --bel: #f5efd9;
+    --grey: rgba(0, 0, 0, .4);
+    --blue: #ced5fe;
+}
+.Button1 {
+    font-family: inherit;
+    background-image: url('/src/components/Button352.gif');
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    border: 0;
+box-shadow: var(--brown1) 2px 2px 2px;
+    cursor: pointer;
+
+
+   }
+.Button1:hover {
+
+    /*-moz-box-shadow:0 0 20px #555;*/
+    /*-webkit-box-shadow:0 0 20px #555;*/
+    box-shadow:0 0 20px #555;
+    /*outline: none;*/
+    /*background-position: 5px 5px;*/
+}
+.button1:focus {
+    box-shadow: var(--brown1) -2px -2px 2px, var(--bel) 1px 1px 1px;
+
+    /*position: absolute;*/
+    /*left: 0;*/
+    /*top: 0;*/
+    /*content: ' ';*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+    /*!*border: 1px solid;*!*/
+    /*border-right-width: 0;*/
+    /*transform: scaleX(0);*/
+
+    /*transform-origin: 0 0;*/
+    /*transition: transform .3s, border .1s .3s;*/
+    /*box-sizing: border-box;*/
+}
+.Button1 span {
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--grey);
+    text-shadow: var(--bel) -1px -1px 1px,
+    var(--black) 1px 1px 1px,
+    var(--bel) 3px 3px 3px;
+    mix-blend-mode: luminosity;
+    alignment: center;
+}
